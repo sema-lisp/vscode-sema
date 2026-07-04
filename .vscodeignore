@@ -1,5 +1,7 @@
 .git/**
+.github/**
 .gitignore
+package-lock.json
 .vscode/**
 *.vsix
 .DS_Store

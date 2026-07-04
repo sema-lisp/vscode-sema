@@ -2,21 +2,41 @@
 
 Language support for [Sema](https://sema-lang.com), a Lisp dialect with first-class LLM primitives.
 
-- **Homepage**: [sema-lang.com](https://sema-lang.com)
-- **Source**: [github.com/HelgeSverre/sema](https://github.com/HelgeSverre/sema)
-- **Playground**: [sema.run](https://sema.run)
+## Install
+
+Install from the VS Code Marketplace:
+
+```
+ext install helgesverre.sema
+```
+
+Or open the Extensions view (`Cmd+Shift+X` / `Ctrl+Shift+X`) and search for **Sema**.
+
+> If the Marketplace listing isn't available yet (publish pending), build and install the `.vsix` locally — see [Building from source](#building-from-source).
 
 ## Features
 
-- Syntax highlighting for `.sema` files
-- Bracket matching and auto-closing
-- Comment toggling (`Ctrl+/` / `Cmd+/`)
-- Highlighting for special forms, builtins, LLM primitives, keywords, strings, numbers, and more
+- Syntax highlighting for `.sema` files (special forms, builtins, LLM primitives, keywords, strings, numbers, regex/f-string literals, and more)
+- Bracket matching, auto-closing, and surrounding pairs for `()`, `[]`, `{}`, and strings
+- Comment toggling with `Cmd+/` / `Ctrl+/`
+- S-expression-aware indentation
+- File icons for `.sema` and `.sema-nb` files
 - **Language server** (`sema lsp`): completions, hover docs, go-to-definition, references, rename, signature help, diagnostics, document symbols, and inline eval results
-- **Debugging** (`sema dap`): step-through debugging with breakpoints
-- **Notebooks**: open a `.sema-nb` file to edit it in the Sema notebook UI
+- **Debugging** (`sema dap`): step-through debugging with line/conditional breakpoints, step in/over/out, stack traces, variable and upvalue inspection, evaluate-on-hover, pause/continue, and an "Uncaught Exceptions" filter
+- **Notebooks**: open a `.sema-nb` file to edit it in the embedded Sema notebook UI with live cell execution
+- **Command**: `Sema: Clear Inline Results` to clear inline eval decorations
 
-All three shell out to the `sema` binary — set its location with the `sema.path` setting if it isn't on your `PATH`.
+## Requirements
+
+The language server, debugger, and notebook features shell out to the `sema` binary. Install it from [sema-lang.com](https://sema-lang.com) and make sure it's on your `PATH`, or point the extension at it explicitly:
+
+```json
+{
+  "sema.path": "/absolute/path/to/sema"
+}
+```
+
+Syntax highlighting and bracket/comment editing work without the binary.
 
 ## Debugging
 
@@ -37,42 +57,39 @@ The extension bundles a debug adapter backed by the `sema dap` server. Add a lau
 }
 ```
 
-Then press `F5` in a `.sema` file. Supported: line breakpoints (incl. conditional), step in/over/out, stack traces, variable and upvalue inspection, evaluate-on-hover, pause/continue, and an "Uncaught Exceptions" filter.
+Then press `F5` in a `.sema` file.
 
 ## Notebooks
 
-Opening a `.sema-nb` file launches `sema notebook serve` for that file and embeds its web UI directly in the editor tab (live cell execution, one server per open notebook, stopped when you close the tab). No extra setup — it uses the same `sema.path` binary.
+Opening a `.sema-nb` file launches `sema notebook serve` for that file and embeds its web UI directly in the editor tab (live cell execution, one server per open notebook, stopped when you close the tab). It uses the same `sema.path` binary — no extra setup.
 
-## Installation
-
-### From VSIX
-
-1. Build the VSIX package:
-   ```bash
-   cd editors/vscode/sema
-   npx @vscode/vsce package
-   ```
-2. Install in VS Code:
-   ```
-   code --install-extension sema-0.1.0.vsix
-   ```
-
-### Manual Install
-
-Copy the extension folder to your VS Code extensions directory:
+## Building from source
 
 ```bash
-# macOS / Linux
-cp -r editors/vscode/sema ~/.vscode/extensions/helgesverre.sema-0.1.0
-
-# Windows
-xcopy editors\vscode\sema %USERPROFILE%\.vscode\extensions\helgesverre.sema-0.1.0\ /E /I
+npm install
+npm run compile
+npx @vscode/vsce package
 ```
 
-Restart VS Code after copying.
+This produces `sema-<version>.vsix`, which you can install with:
 
-### Development
+```
+code --install-extension sema-<version>.vsix
+```
 
-1. Open the `editors/vscode/sema` folder in VS Code
-2. Press `F5` to launch an Extension Development Host
-3. Open any `.sema` file to see syntax highlighting
+## Development
+
+1. Open this repository in VS Code
+2. Run `npm install`
+3. Press `F5` to launch an Extension Development Host
+4. Open any `.sema` file to see syntax highlighting and, if `sema` is installed, the language server
+
+## Links
+
+- **Homepage**: [sema-lang.com](https://sema-lang.com)
+- **Playground**: [sema.run](https://sema.run)
+- **Repository**: [github.com/sema-lisp/vscode-sema](https://github.com/sema-lisp/vscode-sema)
+
+## License
+
+MIT — see [LICENSE](LICENSE).
