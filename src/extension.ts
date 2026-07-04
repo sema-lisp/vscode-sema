@@ -111,6 +111,17 @@ export async function activate(context: vscode.ExtensionContext) {
         })
     );
 
+    // MCP: register Sema's Model Context Protocol server (`sema mcp`) so it
+    // appears in the Chat / agent view, exposing Sema's tools (eval, build,
+    // notebook, docs). Shares the `sema.path` binary with the LSP and debugger.
+    context.subscriptions.push(
+        vscode.lm.registerMcpServerDefinitionProvider('sema', {
+            provideMcpServerDefinitions: () => [
+                new vscode.McpStdioServerDefinition('Sema', semaPath, ['mcp']),
+            ],
+        })
+    );
+
     // Notebooks: opening a .sema-nb file shows the notebook web UI (served by
     // `sema notebook serve`) embedded in the editor pane.
     registerNotebookEditor(context, outputChannel);

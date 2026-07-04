@@ -2,7 +2,7 @@
   "name": "sema",
   "displayName": "Sema",
   "description": "Language support for Sema, a Lisp dialect with first-class LLM primitives",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "publisher": "helgesverre",
   "author": {
     "name": "Helge Sverre",
@@ -25,7 +25,7 @@
     "url": "https://github.com/sema-lisp/vscode-sema"
   },
   "engines": {
-    "vscode": "^1.75.0"
+    "vscode": "^1.101.0"
   },
   "categories": [
     "Programming Languages"
@@ -158,13 +158,19 @@
           }
         ]
       }
+    ],
+    "mcpServerDefinitionProviders": [
+      {
+        "id": "sema",
+        "label": "Sema"
+      }
     ]
   },
   "dependencies": {
     "vscode-languageclient": "^9.0.1"
   },
   "devDependencies": {
-    "@types/vscode": "^1.75.0",
+    "@types/vscode": "^1.101.0",
     "@types/node": "^18.0.0",
     "typescript": "^5.0.0"
   }

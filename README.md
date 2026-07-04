@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://sema-lang.com/logo.svg" alt="Sema" height="64">
+<img src="https://raw.githubusercontent.com/HelgeSverre/sema/main/assets/icons/png/sema-logotype-366.png" alt="Sema" height="48">
 
 # Sema for VS Code
 
