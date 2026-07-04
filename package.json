@@ -18,11 +18,11 @@
   ],
   "homepage": "https://sema-lang.com",
   "bugs": {
-    "url": "https://github.com/HelgeSverre/sema/issues"
+    "url": "https://github.com/sema-lisp/vscode-sema/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/HelgeSverre/sema"
+    "url": "https://github.com/sema-lisp/vscode-sema"
   },
   "engines": {
     "vscode": "^1.75.0"
