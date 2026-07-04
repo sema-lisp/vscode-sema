@@ -1,4 +1,16 @@
-# Sema for Visual Studio Code
+<div align="center">
+
+<img src="https://sema-lang.com/logo.svg" alt="Sema" height="64">
+
+# Sema for VS Code
+
+**[Sema](https://sema-lang.com) support for [VS Code](https://code.visualstudio.com)** — a Lisp with first-class LLM primitives.
+
+[![CI](https://img.shields.io/github/actions/workflow/status/sema-lisp/vscode-sema/ci.yml?branch=main&label=CI&logo=github)](https://github.com/sema-lisp/vscode-sema/actions)
+[![License](https://img.shields.io/github/license/sema-lisp/vscode-sema?color=c8a855)](LICENSE)
+[![Website](https://img.shields.io/badge/website-sema--lang.com-c8a855)](https://sema-lang.com)
+
+</div>
 
 Language support for [Sema](https://sema-lang.com), a Lisp dialect with first-class LLM primitives.
 
@@ -86,10 +98,12 @@ code --install-extension sema-<version>.vsix
 
 ## Links
 
-- **Homepage**: [sema-lang.com](https://sema-lang.com)
-- **Playground**: [sema.run](https://sema.run)
-- **Repository**: [github.com/sema-lisp/vscode-sema](https://github.com/sema-lisp/vscode-sema)
+- **Website** — [sema-lang.com](https://sema-lang.com)
+- **Playground** — [sema.run](https://sema.run)
+- **Documentation** — [sema-lang.com/docs](https://sema-lang.com/docs/)
+- **Grammar** — [tree-sitter-sema](https://github.com/sema-lisp/tree-sitter-sema)
+- **Repository** — [sema-lisp/vscode-sema](https://github.com/sema-lisp/vscode-sema)
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+[MIT](LICENSE) © [Helge Sverre](https://github.com/HelgeSverre)
