@@ -6,7 +6,7 @@
 
 # File recipe: repackage the .vsix only when the sources/manifest change.
 file sema.vsix: src/**/* package.json language-configuration.json syntaxes/*.json
-    @needs npx "install Node.js"
+    @command -v npx >/dev/null || { echo "npx not found — install Node.js" >&2; exit 1; }
     npm install
     npm run compile
     npx --yes @vscode/vsce package --no-git-tag-version --out sema.vsix
