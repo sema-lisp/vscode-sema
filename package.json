@@ -1,6 +1,6 @@
 {
-  "name": "sema",
-  "displayName": "Sema",
+  "name": "sema-lang",
+  "displayName": "Sema Lisp",
   "description": "Language support for Sema, a Lisp dialect with first-class LLM primitives",
   "version": "0.2.0",
   "publisher": "sema-lang",
