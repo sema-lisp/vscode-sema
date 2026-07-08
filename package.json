@@ -3,7 +3,7 @@
   "displayName": "Sema",
   "description": "Language support for Sema, a Lisp dialect with first-class LLM primitives",
   "version": "0.2.0",
-  "publisher": "helgesverre",
+  "publisher": "sema-lang",
   "author": {
     "name": "Helge Sverre",
     "email": "helge.sverre@gmail.com"
