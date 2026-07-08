@@ -10,21 +10,23 @@
 [![License](https://img.shields.io/github/license/sema-lisp/vscode-sema?color=c8a855)](LICENSE)
 [![Website](https://img.shields.io/badge/website-sema--lang.com-c8a855)](https://sema-lang.com)
 
+[![VS Marketplace](https://img.shields.io/visual-studio-marketplace/v/sema-lang.sema-lang?label=VS%20Marketplace&color=c8a855&logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=sema-lang.sema-lang)
+[![Open VSX](https://img.shields.io/open-vsx/v/sema-lang/sema-lang?label=Open%20VSX&color=c8a855)](https://open-vsx.org/extension/sema-lang/sema-lang)
+[![Installs](https://img.shields.io/visual-studio-marketplace/i/sema-lang.sema-lang?label=installs&color=c8a855)](https://marketplace.visualstudio.com/items?itemName=sema-lang.sema-lang)
+
 </div>
 
 Language support for [Sema](https://sema-lang.com), a Lisp dialect with first-class LLM primitives.
 
 ## Install
 
-Install from the VS Code Marketplace:
+Available on the **[VS Marketplace](https://marketplace.visualstudio.com/items?itemName=sema-lang.sema-lang)** (VS Code) and **[Open VSX](https://open-vsx.org/extension/sema-lang/sema-lang)** (VSCodium, Cursor, Windsurf, Gitpod, …):
 
 ```
-ext install helgesverre.sema
+ext install sema-lang.sema-lang
 ```
 
-Or open the Extensions view (`Cmd+Shift+X` / `Ctrl+Shift+X`) and search for **Sema**.
-
-> If the Marketplace listing isn't available yet (publish pending), build and install the `.vsix` locally — see [Building from source](#building-from-source).
+Or open the Extensions view (`Cmd+Shift+X` / `Ctrl+Shift+X`) and search for **Sema Lisp**.
 
 ## Features
 
