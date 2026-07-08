@@ -53,7 +53,7 @@ Syntax highlighting and bracket/comment editing work without the binary.
 
 ## Debugging
 
-The extension bundles a debug adapter backed by the `sema dap` server. Add a launch configuration to `.vscode/launch.json`:
+The extension registers a debug adapter that launches `sema dap` — the stdio DAP server built into your `sema` binary. Add a launch configuration to `.vscode/launch.json`:
 
 ```json
 {
