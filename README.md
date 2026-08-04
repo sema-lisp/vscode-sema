@@ -1,6 +1,7 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/HelgeSverre/sema/main/assets/icons/png/sema-logotype-366.png" alt="Sema" height="48">
+<!-- PNG, not SVG: the VS Marketplace strips SVG images from the README. -->
+<img src="https://raw.githubusercontent.com/sema-lisp/sema/main/assets/icons/png/sema-logotype-732.png" alt="Sema" height="64">
 
 # Sema for VS Code
 
@@ -9,7 +10,6 @@
 [![CI](https://img.shields.io/github/actions/workflow/status/sema-lisp/vscode-sema/ci.yml?branch=main&label=CI&logo=github)](https://github.com/sema-lisp/vscode-sema/actions)
 [![License](https://img.shields.io/github/license/sema-lisp/vscode-sema?color=c8a855)](LICENSE)
 [![Website](https://img.shields.io/badge/website-sema--lang.com-c8a855)](https://sema-lang.com)
-
 [![VS Marketplace](https://img.shields.io/badge/VS%20Marketplace-007ACC?logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=sema-lang.sema-lang)
 [![Open VSX](https://img.shields.io/badge/Open%20VSX-a60ee5?logo=openvsx&logoColor=white)](https://open-vsx.org/extension/sema-lang/sema-lang)
 
