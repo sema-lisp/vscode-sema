@@ -19,6 +19,11 @@ jobs:
   publish:
     name: Package and publish
     runs-on: ubuntu-latest
+    # The final step creates a GitHub Release for the tag. Without this the default
+    # GITHUB_TOKEN is read-only and that step fails with 403 *after* both marketplace
+    # publishes have already succeeded.
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout repository
