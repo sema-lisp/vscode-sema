@@ -25,5 +25,8 @@ jobs:
       - name: Compile
         run: npm run compile
 
+      - name: Test grammar
+        run: npm test
+
       - name: Package (.vsix) dry-run
         run: npx --yes @vscode/vsce package --no-git-tag-version --out sema.vsix
