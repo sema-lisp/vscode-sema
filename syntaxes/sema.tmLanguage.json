@@ -54,6 +54,17 @@
     }
   ],
   "repository": {
+    "regex": {
+      "name": "string.regexp.sema",
+      "begin": "#\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "string.regexp.sema",
+          "match": "\\\\."
+        }
+      ]
+    },
     "block-comment": {
       "name": "comment.block.sema",
       "begin": "#\\|",
