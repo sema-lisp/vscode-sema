@@ -46,12 +46,10 @@ export async function activate(context: vscode.ExtensionContext) {
     };
 
     client = new LanguageClient('sema', 'Sema Language Server', serverOptions, clientOptions);
-
-    // Start the client and wait for it to be ready
-    await client.start();
+    context.subscriptions.push(client);
 
     // Listen for eval results
-    client.onNotification('sema/evalResult', (result: any) => {
+    context.subscriptions.push(client.onNotification('sema/evalResult', (result: any) => {
         const uri = normalizeUri(result.uri);
         const editor = vscode.window.visibleTextEditors.find(
             e => e.document.uri.toString() === uri
@@ -86,7 +84,7 @@ export async function activate(context: vscode.ExtensionContext) {
         outputChannel.appendLine(
             `[${path.basename(uri)}:${result.range.start.line + 1}] ${result.ok ? '✓' : '✗'} ${result.value ?? result.error ?? ''} (${result.elapsedMs}ms)`
         );
-    });
+    }));
 
     // Reapply decorations when switching editor tabs
     context.subscriptions.push(
@@ -125,6 +123,16 @@ export async function activate(context: vscode.ExtensionContext) {
     // Notebooks: opening a .sema-nb file shows the notebook web UI (served by
     // `sema notebook serve`) embedded in the editor pane.
     registerNotebookEditor(context, outputChannel);
+
+    // LSP startup must not prevent the independent notebook, DAP, MCP, and
+    // command registrations above from activating.
+    void client.start().catch((error: unknown) => {
+        const detail = error instanceof Error ? error.message : String(error);
+        outputChannel.appendLine(`Language server failed to start: ${detail}`);
+        void vscode.window.showErrorMessage(
+            `Sema language server failed to start: ${detail}. Check the sema.path setting.`,
+        );
+    });
 }
 
 export function deactivate(): Thenable<void> | undefined {

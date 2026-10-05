@@ -41,6 +41,7 @@
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
+    "test": "node scripts/test-syntax.js",
     "watch": "tsc -watch -p ./"
   },
   "contributes": {
