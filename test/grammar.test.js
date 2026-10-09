@@ -53,3 +53,35 @@ test('classifies every regex builtin', () => {
     assert.ok(tokens.some(token => token.scopes.includes('support.function.sema')), name)
   }
 })
+
+test('classifies body macros as keywords', () => {
+  for (const name of ['parameterize', 'term/with-bracketed-paste', 'term/with-focus-events', 'term/with-kitty-keys']) {
+    const tokens = scopesFor(`(${name} x)`, name)
+    assert.ok(tokens.some(token => token.scopes.includes('keyword.control.sema')), name)
+  }
+})
+
+test('classifies bound equality operators and leaves unknown names alone', () => {
+  for (const name of ['eq?', 'equal?']) {
+    const tokens = scopesFor(`(${name} x y)`, name)
+    assert.ok(tokens.some(token => token.scopes.includes('keyword.operator.arithmetic.sema')), name)
+  }
+  for (const name of ['eqv?', '%']) {
+    const tokens = scopesFor(`(${name} x y)`, name)
+    assert.ok(tokens.every(token => !token.scopes.includes('keyword.operator.arithmetic.sema')), name)
+  }
+})
+
+test('scopes complete hash booleans and rejects their prefixes', () => {
+  for (const literal of ['#t', '#f', '#true', '#false']) {
+    const tokens = scopesFor(`(list ${literal})`, literal)
+    assert.ok(tokens.some(token => token.scopes.includes('constant.language.boolean.sema')), literal)
+  }
+  const tokens = scopesFor('(list #truex)', '#truex')
+  assert.ok(tokens.every(token => !token.scopes.includes('constant.language.boolean.sema')))
+})
+
+test('does not hide unsupported block comments', () => {
+  const tokens = scopesFor('#| not a comment |#', 'not')
+  assert.ok(tokens.every(token => !token.scopes.includes('comment.block.sema')))
+})
